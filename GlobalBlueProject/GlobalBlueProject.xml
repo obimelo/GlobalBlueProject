@@ -6,7 +6,7 @@
     <members>
         <member name="M:GlobalBlueProject.Controllers.PurchasesController.AustriaPurchaseAmounts(System.Int32,System.Nullable{System.Decimal},System.Nullable{System.Decimal},System.Nullable{System.Decimal})">
             <summary>
-            Return the amounts [Net, Gross and VAT] for a purchase in Austria
+            Returns the amounts [Net, Gross and VAT] of a purchase in Austria
             </summary>
             <param name="vatRate">VAT rate</param>
             <param name="netValue">Base Net Value</param>

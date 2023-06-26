@@ -10,22 +10,25 @@ namespace GlobalBlueProject.Controllers
     [Route("api/v1/purchases")]
     public sealed class PurchasesController : BaseController
     {
+        #region Private Variables
         private readonly IMediator _mediator;
+        #endregion
 
+        #region Constructor
         public PurchasesController(IMediator mediator) => _mediator = mediator;
+        #endregion
 
-        // Get
-        #region Get
+        #region Gets
 
         /// <summary>
-        /// Return the amounts [Net, Gross and VAT] for a purchase in Austria
+        /// Returns the amounts [Net, Gross and VAT] of a purchase in Austria
         /// </summary>
         /// <param name="vatRate">VAT rate</param>
         /// <param name="netValue">Base Net Value</param>
         /// <param name="grossValue">Base Gross Value</param>
         /// <param name="vatValue">Base VAT Value</param>
         /// <returns></returns>
-        [HttpGet("austriaPurchaseAmounts/{vatRate}", Name = "AustriaPurchaseAmounts")]
+        [HttpGet("austriaPurchaseAmounts/{vatRate}")]
         [Produces("application/json")]
         [ProducesResponseType(StatusCodes.Status200OK, Type = typeof(Envelope<PurchaseAmountsDTO>))]
         [ProducesResponseType(StatusCodes.Status400BadRequest, Type = typeof(Envelope<PurchaseAmountsDTO>))]

@@ -6,7 +6,7 @@ using MediatR;
 namespace GlobalBlueProject.Services.Purchases.Queries
 {
     #region Request
-    internal sealed class AustriaPurchaseAmountsQuery : IRequest<Result<PurchaseAmountsDTO>>
+    public sealed class AustriaPurchaseAmountsQuery : IRequest<Result<PurchaseAmountsDTO>>
     {
         public int VatRate { get; set; }
         public decimal? NetValue { get; set; }
@@ -24,7 +24,7 @@ namespace GlobalBlueProject.Services.Purchases.Queries
     #endregion
 
     #region RequestHandler
-    internal sealed class AustriaPurchaseAmountsQueryHandler : IRequestHandler<AustriaPurchaseAmountsQuery, Result<PurchaseAmountsDTO>>
+    public sealed class AustriaPurchaseAmountsQueryHandler : IRequestHandler<AustriaPurchaseAmountsQuery, Result<PurchaseAmountsDTO>>
     {
         public async Task<Result<PurchaseAmountsDTO>> Handle(AustriaPurchaseAmountsQuery request, CancellationToken cancellationToken)
         {

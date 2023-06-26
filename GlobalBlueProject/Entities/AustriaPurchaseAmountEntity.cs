@@ -5,15 +5,20 @@ namespace GlobalBlueProject.Entities
 {
     internal sealed class AustriaPurchaseAmountEntity
     {
+        #region Private Variables
         private readonly List<int> _validVatRates = new() { 10, 13, 20 };
         private decimal VatRatePercent => VatRate / 100M + 1;
+        #endregion
 
+        #region Public Properties
         public int VatRate { get; }
         public decimal? NetValue { get; private set; }
         public decimal? GrossValue { get; private set; }
         public decimal? VatValue { get; private set; }
         public Result Validations { get; }
+        #endregion
 
+        #region Constructor
         public AustriaPurchaseAmountEntity(int vatRate, decimal? netValue, decimal? grossValue, decimal? vatValue)
         {
             VatRate = vatRate;
@@ -26,6 +31,7 @@ namespace GlobalBlueProject.Entities
             if (Validations.IsSuccess)
                 CalculateAmountValues();
         }
+        #endregion
 
         #region private
 
